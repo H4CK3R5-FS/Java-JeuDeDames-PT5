@@ -15,10 +15,11 @@ public class Game {
 	String [][] board=new String[10][10];
 	ArrayList<Piece> alP=new ArrayList<Piece>();
 	HashMap<String,Piece> hmP= new HashMap<String,Piece>();
-public void game() {
-	Utilitaires.draw_Board(board);
-	Utilitaires.add_Pieces_To_List(alP);
-	Utilitaires.add_Pieces_To_Board(alP,hmP, board);
-	Round.round(hmP, board);
-}
+	
+	public void game() {
+		Utilitaires.draw_Board(board);
+		Utilitaires.add_Pieces_To_List(alP);
+		Utilitaires.add_Pieces_To_Board(alP,hmP, board);
+		Round.round(hmP, board);
+	}
 }
