@@ -29,23 +29,26 @@ public class Events {
 	public static void check_Moves() {
 
 	}
+
 	// eat event
-	public static void eat_Event(Piece predator,Piece victim,String[][] board,HashMap<String, Piece> hmP) {
-	System.out.println(predator.getName()+" ate "+victim.getName());
-	board[victim.getY()][victim.getX()]=Utilitaires.get_Position(board, victim.getX(), victim.getY());
-	hmP.remove(victim.getName());
-	Utilitaires.read_Board(board);
+	public static void eat_Event(Piece predator, Piece victim, String[][] board, HashMap<String, Piece> hmP) {
+		System.out.println(predator.getName() + " ate " + victim.getName());
+		board[victim.getY()][victim.getX()] = Utilitaires.get_Position(board, victim.getX(), victim.getY());
+		hmP.remove(victim.getName());
+		Utilitaires.read_Board(board);
 	}
-	public static boolean eat_Condition(HashMap<String,Piece> hmP,Piece P,String[][] board) {
-		if(hmP.containsKey(board[P.getY()-1][P.getX()-1])) {
-			if(hmP.get(board[P.getY()-1][P.getX()-1]).getColour()!=hmP.get(board[P.getY()][P.getX()]).getColour()) {
-				if(!hmP.containsKey(board[P.getY()-2][P.getX()-2])) {
-					System.out.println(P.getName()+" can eat ");
+
+	public static boolean eat_Condition(HashMap<String, Piece> hmP, Piece P, String[][] board) {
+		if (hmP.containsKey(board[P.getY() - 1][P.getX() - 1])) {
+			if (hmP.get(board[P.getY() - 1][P.getX() - 1]).getColour() != hmP.get(board[P.getY()][P.getX()])
+					.getColour()) {
+				if (!hmP.containsKey(board[P.getY() - 2][P.getX() - 2])) {
+					System.out.println(P.getName() + " can eat ");
 					return true;
 				}
 			}
 		}
-		System.out.print(P.getName()+" cannot eat ");
+		System.out.print(P.getName() + " cannot eat ");
 		return false;
 	}
 	// eat condtions
